@@ -5,59 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plagiarism Detector</title>
-    
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Plagiarism Detector</h1>
 
-    <label for="text1">Text 1:</label>
-    <textarea id="text1" placeholder="Enter the first text"></textarea>
+    
+    <div class="container">
+        <h1>Plagiarism Detector</h1>
 
-    <label for="text2">Text 2:</label>
-    <textarea id="text2" placeholder="Enter the second text"></textarea>
+        <div class="input-container">
+            <label for="text1">Text 1:</label>
+            <textarea id="text1" placeholder="Enter the first text"></textarea>
+        </div>
 
-    <button onclick="checkPlagiarism()">Check Plagiarism</button>
+        <div class="input-container">
+            <label for="text2">Text 2:</label>
+            <textarea id="text2" placeholder="Enter the second text"></textarea>
+        </div>
 
-    <div id="result">
-        <strong>Plagiarism Score:</strong> <span id="score">0%</span>
+        <button onclick="checkPlagiarism()">Check Plagiarism</button>
+
+        <div id="result">
+            <strong>Plagiarism Score:</strong> <span id="score">0%</span>
+        </div>
     </div>
 
-    <script>
-        function checkPlagiarism() {
-            // Get the text inputs
-            var text1 = document.getElementById('text1').value;
-            var text2 = document.getElementById('text2').value;
-
-            // Perform plagiarism check (a simple example, you may use a more advanced algorithm)
-            var similarityScore = calculateSimilarity(text1, text2);
-
-            // Display the result
-            var resultDiv = document.getElementById('result');
-            var scoreSpan = document.getElementById('score');
-            scoreSpan.textContent = similarityScore + '%';
-            resultDiv.style.display = 'block';
-        }
-
-        function calculateSimilarity(text1, text2) {
-            // Implement your plagiarism detection algorithm here
-            // This is a placeholder, you may replace it with a more advanced algorithm
-            // For simplicity, let's just compare the lengths of the texts
-            var minLength = Math.min(text1.length, text2.length);
-            var commonLength = 0;
-
-            for (var i = 0; i < minLength; i++) {
-                if (text1[i] === text2[i]) {
-                    commonLength++;
-                }
-            }
-
-            // Calculate similarity score as a percentage
-            var similarityScore = (commonLength / minLength) * 100;
-
-            return similarityScore.toFixed(2); // Round to two decimal places
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
